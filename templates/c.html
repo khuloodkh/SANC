@@ -1,0 +1,262 @@
+
+<script>
+    // defain the spinner
+    window.spinner = `
+    <div class="d-flex justify-content-start mb-4">
+      <div class="img_cont_msg">
+        <img src="assets/img/chatbot.gif" class="rounded-circle user_img_msg">
+      </div>
+      <div id="spinner" class="radius">
+        <span class='spinme-left'>
+          <div class='spinner'>
+            <div class='bounce1'>
+            </div>
+            <div class='bounce2'>
+            </div>
+            <div class='bounce3'>
+            </div>
+          </div>
+        </span>
+      </div>
+    </div>
+    `
+  </script>
+  <script>
+    // if the user pressed a key on the input form
+    $('#inputform').keypress(function (event) {
+      // and the key was key number 13 which is Enter
+      if (event.which == 13) {
+        // check if the input form is NOT empty
+        if ($('#inputform').val() != '') {
+          // call start() function
+          start();
+        }
+        // other wise, the key wasn't Enter or the form was empty
+        // return False, Cancel the form submittion and the key
+        return false;
+      }
+    });
+  </script>
+  <script>
+    $("#buttonVoice").click(function() {
+      $('#inputform').removeProp('required');
+      voice();
+    })
+  </script>
+  <script>
+    $("#buttonInput").click(function() {
+      if ($('#inputform').val() == '') {
+        $('#inputform').prop('required',true);
+      } else {
+        $('#inputform').removeProp('required');
+        start();
+      }
+    });
+  </script>
+  <script>
+    function voice(event) {
+      //Check if the browser has support the Web spechRecogintion API
+        if ('webkitSpeechRecognition' in window) {
+        //Instance object of webkitSpeechRecognition
+        var recognition = new webkitSpeechRecognition();
+        //Set the spoken language for the speech recognizer for English-United
+        recognition.lang = 'en-US';
+        //Set the value of continuous to Flase
+        recognition.continuous =false;
+        //set value of interimResults to False
+        recognition.interimResults = false;
+  
+  
+        //Activate the speech recognizer
+        recognition.start();
+        // Red Color
+        recognition.onstart = function(event) {
+          // when the recording start
+          // change the button color to #ff5454, RED
+          console.log(1)
+          $('#buttonVoice').css({"background-color": "#ff5454"})
+        };
+        //check if an error occurs while capture the audio
+        recognition.onerror = function(event) {
+          console.log(event.error);
+        };
+        //Get the result of recognition
+        recognition.onresult = function(event) {
+          //Get the audio and appear inside the input form
+          $('#inputform').val(event.results[0][0].transcript);
+          //Stop recognition after audio end
+          recognition.stop();
+        };
+  
+        recognition.onend = function(event) {
+          // when the recording stops
+          // change the button color to #5d7493, Default color
+          console.log(2)
+          $('#buttonVoice').css({"background-color": "#5d7493"})
+        };
+        }
+  
+      }
+  </script>
+  <script>
+    function formating(text) {
+      // get the current time
+      var now = window.date.toLocaleString([], {
+          hour: '2-digit',
+          minute: '2-digit'
+      });
+  
+      // line break function
+      var two_line = /\n\n/g;
+      var one_line = /\n/g;
+      // replace one_line with <br /> and two_line with <p></p> to get it ready for html
+      text = text.replace(two_line, '<p></p>').replace(one_line, '<br>');
+  
+      if($("#spinner").length == 0) {
+        // no spinner exiest
+        // in case of two message situation
+        // append the container (the div which contain the message)
+        // the span is used later to be replaced with the content of the message
+        var conatiner = `
+          <div class="d-flex justify-content-start mb-4">
+            <div class="img_cont_msg">
+              <img src="assets/img/chatbot.gif" class="rounded-circle user_img_msg">
+            </div>
+            <span id="spinner">
+            </span>
+            </div>
+          </div>
+          `
+        $('.msg_card_body').append(conatiner)
+      }
+        // the bot text template of the message
+        var html = '<div  class="msg_cotainer radius">' + text + '<span class="msg_time">' + now + '</span></div>'
+        // hide the html then replace it with the #spinner then fade it in
+        $(html).hide().replaceAll('#spinner').fadeIn();
+  
+  
+    }
+  </script>
+  <script>
+    function start() {
+      //defain date and get current time
+      window.date = new Date();
+      var now = window.date.toLocaleString([], {
+          hour: '2-digit',
+          minute: '2-digit'
+      });
+      // be default asked is False
+      // asked is used for multi answer questions
+      asked = 'False';
+  
+      // get the value of the input form
+      inputText = $('#inputform').val();
+  
+      // append the Frame with span inside of it
+      // the span is used later to be replaced with the content of the message
+      // beacuse there is no way to idintefiy where the new message should get appended
+      msgFrame = '<div class="d-flex justify-content-end mb-4"> <span id="here"></span><div class="img_cont_msg"><img class="rounded-circle user_img_msg userimg" src="assets/img/progch.jpg"/></div> </div>'
+      $('.msg_card_body').append(msgFrame)
+      updateImg()
+      // format and prepare the user message
+      userMsg = '<div class="msg_cotainer_send radius">'+ inputText +'<span class="msg_time_send">' + now + '</span></div>'
+      // hide the userMsg then append it to the container class #here and finally fade it in
+      $(userMsg).hide().replaceAll("#here").fadeIn();
+      //scroll dawn smoothly
+      $('.msg_card_body').animate({
+         scrollTop: $('.msg_card_body').prop('scrollHeight')
+       });
+      // Clear the input form
+      $('#inputform').val("");
+      // hide the spinner then append it to msg_card_body class finally fade it in
+      $(window.spinner).hide().appendTo(".msg_card_body").fadeIn();
+  
+      // in case of multi answer questions check if we got the first question
+      if (window.oldText) {
+        // if so Concatinate the old text with the new one
+        inputText = window.oldText + ' ' + inputText
+        // and set asked to true
+        asked = 'True';
+      }
+      // send data to the bot using POST method
+      $.ajax({
+        data: {input: inputText,
+               asked: asked},
+        type: 'POST',
+        url: 'https://psbot-bot.herokuapp.com/'
+      })
+      .done(function(data) {
+        // when we get the response back from the server
+        // send the response to classifyResponse
+       classifyResponse(data)
+       // whene you get back
+       //scroll dawn smoothly
+       $('.msg_card_body').animate({
+          scrollTop: $('.msg_card_body').prop('scrollHeight')
+        });
+      });
+    }
+  </script>
+  <script>
+    function classifyResponse(data) {
+      // old text be default is empty
+      window.oldText = ""
+  
+      // response classification :)
+  
+      if (data.zero == "0"){
+        formating("Apology, I do not understand. Can you rephrase?");
+      }
+      else if(data.one=="0"){
+        formating(data.zero);
+        //data=data.zero
+        //$('.msg_card_body').append('<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"> <img src="{{ url_for("static", filename="./image/chatbot.gif") }}" class="rounded-circle user_img_msg"></div><div class="msg_cotainer radius">'+ linebreak(data) +'<span class="msg_time">' + now +'</span></div> </div>')
+      }
+      else if  (data.one == "2"){
+        formating(data.zero);
+        formating("Is that response what you are looking for?");
+        //data=data.zero
+        //$('.msg_card_body').append('<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="{{ url_for("static", filename="./image/chatbot.gif") }}" class="rounded-circle user_img_msg"></div><div class="msg_cotainer radius">'+ linebreak(data) +'<span class="msg_time">' + now +'</span></div></div>')
+        //$('.msg_card_body').append('<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="{{ url_for("static", filename="./image/chatbot.gif") }}" class="rounded-circle user_img_msg"></div> <div class="msg_cotainer radius">Is that response what you are looking for?<span class="msg_time">' + now +'</span></div></div>')
+      }
+      else if (data.one == "4"){
+        // in case of mutli answer question
+        // save the old text in a window variable
+        // window variables are global variables, they only get removed when the window is closed
+        window.oldText = inputText;
+        formating(data.zero);
+        //data=data.zero
+        //$('.msg_card_body').append('<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="{{ url_for("static", filename="./image/chatbot.gif") }}" class="rounded-circle user_img_msg"></div><div class="msg_cotainer radius">'+ linebreak(data) +'<span class="msg_time">' + now + '</span></div></div>')
+      }
+      else if (data.one == "3"){
+        formating("you didn't select from the following structures so ill try to do my best to help you.");
+        //$('.msg_card_body').append('<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="{{ url_for("static", filename="./image/chatbot.gif") }}" class="rounded-circle user_img_msg"></div><div class="msg_cotainer radius">you didn\'t select from the following structures so ill try to do my best to help you.<span class="msg_time">' + now +'</span></div></div>')
+        formating(data.zero);
+        //data=data.zero
+        //$('.msg_card_body').append('<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="{{ url_for("static", filename="./image/chatbot.gif") }}" class="rounded-circle user_img_msg"></div><div class="msg_cotainer radius">'+ linebreak(data)+'<span class="msg_time">'+ now +'</span></div></div>')
+        }
+      else {
+        formating(data.zero);
+        //$('.msg_card_body').append('<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="{{ url_for("static", filename="./image/chatbot.gif") }}" class="rounded-circle user_img_msg"></div><div class="msg_cotainer radius">'+ linebreak(data.zero) +'<span class="msg_time">' + now +'</span></div></div>')
+        // if the bot sent two messages
+        // this happens when the user input is: Hi, could you give me the general syntax
+        if (Array.isArray(data.one)) {
+          // data.one is an array contains the second responses
+          // we extract the second response into a new array
+          array = {
+            zero: data.one[0],
+            one: data.one[1]
+          }
+          // then classify it again as new response
+          classifyResponse(array)
+        }
+      }
+    }
+  </script>
+  <script>
+    $('form').on('submit', function(event) {
+      // prevent the default submit of the form
+      event.preventDefault();
+    });
+  </script>
+  <script src="assets/js/home.js"></script>
