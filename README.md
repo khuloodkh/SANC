@@ -1,8 +1,6 @@
 
 
-# Smart Arabic News Classifier
-
-<img src="static/images/IMG_8784.PNG" style="float: left; " height=80px width=80px> <font size=150>
+<img src="static/images/IMG_8784.PNG" style="float: left; " height=80px width=80px>  # Smart Arabic News Classifier
 
 
 ---
