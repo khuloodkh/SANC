@@ -1,4 +1,4 @@
-<img src="static/images/IMG_8784.PNG" style="float: left; margin:11px; " height=50px width=50px>
+<img src="static/images/IMG_8784.PNG" style="float: left; " height=80px width=80px>
 
 # Smart Arabic News Classifier
 
