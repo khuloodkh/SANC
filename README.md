@@ -1,6 +1,6 @@
 
 
-<html><img src="static/images/IMG_8784.PNG" style="float: left; " height=80px width=80px></html> # Smart Arabic News Classifier 
+# Smart Arabic News Classifier <img src="static/images/IMG_8784.PNG" style="float: left; " height=80px width=80px>
 
 
 ---
