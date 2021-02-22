@@ -13,3 +13,5 @@ vader_lexicon
 treebank
 dependency_treebank
 stopwords
+word_tokenize
+ISRIStemmer
