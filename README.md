@@ -1,5 +1,5 @@
-<p>
-<img src="static/images/IMG_8784.PNG" style="float: left; " height=80px width=80px><h1>Smart Arabic News Classifier</h1>
+<p style="font-size:20px">
+<img src="static/images/IMG_8784.PNG" style="float: left; " height=80px width=80px> Smart Arabic News Classifier
 </p>
 
 ---
