@@ -1,3 +1,5 @@
+<img src="static/images/IMG_8784.PNG" style="float: left; margin:11px; " height=80px width=80px/>
+
 # Smart Arabic News Classifier
 
 ---
@@ -15,7 +17,7 @@ CONTENTS OF THIS FILE
  INTRODUCTION
  ------------
 
- Large amounts of data are collected everyday. As more information becomes available, it becomes difficult to access what we are looking for. So there is a need for tools and techniques to organize, search and understand vast quantities of information.
+ Large amounts of data are collected everyday. As more information becomes available, it becomes difficult to reach what we are looking for. So there is a need for tools and techniques to organize, search and understand vast quantities of information.
 
  Our project aim to classify the Arabic news, by using the news that collected from Al Arabiya news in [mendeley website](https://data.mendeley.com/datasets/57zpx667y9/2), with classification model, So it can help in organizing, understanding and summarizing large collections of textual information.
 
@@ -54,11 +56,22 @@ This module requires the following modules:
 
 CONFIGURATION
 -------------
-
-The module has no menu or modifiable settings.
+ * Open anaconda prompt
+ * Access SANC directory
+ * Write `python app.py`
 
 DEMO URL
 ------------
+
+<img src="static/images/v2.png"/>
+
+</br>
+</br>
+
+<img src="static/images/v1.png"/>
+
+</br>
+</br>
 
 [Demo]()
 
