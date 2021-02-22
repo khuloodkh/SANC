@@ -1,4 +1,6 @@
 # ---------------------------- Import libraries--------------------------------------#
+import nltk
+nltk.download()
 
 import string
 # NLTK
