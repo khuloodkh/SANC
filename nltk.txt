@@ -1,5 +1,3 @@
-pros_cons
-wordnet
 reuters
 maxent_treebank_pos_tagger
 universal_tagset
