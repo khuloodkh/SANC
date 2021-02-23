@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+     <title> الـمـصـنـف </title>
+<!--
+
+DIGITAL TREND
+
+https://templatemo.com/tm-538-digital-trend
+
+-->
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+     
+    
+     <link rel="stylesheet" type="text/css"  href=" {{url_for('static', filename='css/bootstrap.min.css') }}"> 
+     <link href="{{url_for('static', filename='css/fontawesome-all.css') }}" rel="stylesheet">
+     <link rel="stylesheet" href="{{url_for('static', filename='css/aos.css') }}">
+     <link rel="stylesheet" href="{{url_for('static', filename='css/owl.carousel.min.css') }}">
+     <link rel="stylesheet" href="{{url_for('static', filename='css/owl.theme.default.min.css') }}">
+     <link href="{{url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="{{url_for('static', filename='css/templatemo-digital-trend.css') }}">
+
+     <style>
+ 
+      /* The Modal (background) */
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      }
+      
+      /* Modal Content */
+      .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 3px solid#f1c111;
+        width: 40%;
+      }
+      
+      /* The Close Button */
+      .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+      
+      .close:hover,
+      .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      </style>
+</head>
+
+
+
+<body>
+
+     <!-- MENU BAR -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <div class="collapse navbar-collapse" id="navbarNav">
+               <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item">
+                      <a href="{{ url_for('static',filename='project-detail.html') }}" class="nav-link contact" >عــن المـصــنــف</a>
+                     </li>
+                   <li class="nav-item">
+                       <a href="#team" class="nav-link smoothScroll">فـريــق الـعـمــل </a>
+                   </li>       
+           </div>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <a class="navbar-brand" href="index.html">
+               <i></i>
+                
+               المصنـف الـذكي
+
+           <img src="{{url_for('static', filename='images/IMG_8784.PNG') }}" style="width:4rem; height:4rem; margin-left:1rem;" alt="logo" />
+
+             </a>
+
+        </div>
+    </nav>
+
+
+     <!-- HERO -->
+     <section class="hero hero-bg d-flex justify-content-center align-items-center">
+               <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-10 col-12 d-flex flex-column justify-content-center align-items-center ">
+                              <div class="hero-text">
+
+                                   <h1 class="text-white" data-aos="fade-up" style="text-align:right;">
+                                        يعمل المصنف على مساعدتكم في
+                                        <br><br> تصنيف الأخبار العربية إلى الفئات 
+                                        <br><br>المناسبة
+                                        </h1>
+                                   <br><br>
+                                   <a href="#project" class="custom-btn btn-bg btn mt-3" data-aos="fade-up" data-aos-delay="100"> &nbsp;&nbsp; إسـتـخـدم المـصــنــف &nbsp;&nbsp; </a>
+                                   <strong class="d-block py-3 pl-5 text-white" data-aos="fade-up" data-aos-delay="200"></strong>
+
+                              </div>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                          <div class="hero-image" data-aos="fade-up" data-aos-delay="300">
+
+                            <img src="{{url_for('static', filename='images/oie_transparent (20).png') }}" class="img-fluid" alt="working girl">
+                          </div>
+                        </div>
+
+                    </div>
+               </div>
+     </section>
+
+
+     <!-- ABOUT -->
+     <section class="about section-padding pb-0" id="about">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-lg-7 mx-auto col-md-10 col-12">
+                         <div class="about-info">
+                              
+
+                              <h2 class="mb-4" data-aos="fade-up"style="text-align:right; margin-left:16rem;margin-right:-16rem;">هذا الموقع  <strong>يتيح لك بسهولة </strong> تصنيف أخبارك <br><br>و مقالاتك</h2>
+                           
+                              <p class="mb-0" data-aos="fade-up"style="text-align:right; margin-left:16rem;margin-right:0.5rem;">حيث تعد المستندات النصية أحد أغنى مصادر البيانات للشركات  
+                              <br> لذا قمنا ببناء
+                              <strong>نظام </strong>
+                              .يـمـكـنـه تـصـنـيـف الـمقـالات الإخـبـاريـة آلـيـاً بـدقـة عـالـيـة    
+                              </p>
+                         </div>
+
+                         <div class="about-image" data-aos="fade-up" data-aos-delay="200">
+
+                          <img src="{{url_for('static', filename='images/oie_transparent.png') }}" class="img-fluid" alt="office">
+                        </div>
+                    </div>
+
+               </div>
+          </div>
+     </section>
+
+     <!-- classification section  -->
+     <section class="project section-padding" id="project">  <!--<section class="contact section-padding"> -->
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-lg-6 mx-auto col-md-7 col-12 py-5 mt-5 text-center" data-aos="fade-up">
+
+                         <h1 class="mb-4">هنا يمكنك وضع  <strong>الخبر </strong> ليتم <strong>تصنيفه</strong> </h1>
+
+                    </div>
+
+                    <div class="col-lg-8 mx-auto col-md-10 col-12">
+                    <form   class="contact-form" data-aos="fade-up" data-aos-delay="300" >
+                    <div class="row">
+
+                         <div class="col-lg-12 col-12">
+                         <textarea id = 'article' class="form-control" rows="6" name="article" placeholder="أدخل الخبر هنا "style="border:solid 1px #f1c111;text-align:right; "></textarea>
+                         </div>
+
+                         <div class="col-lg-5 mx-auto col-7">
+                         <button class="form-control" id="submit-button" >قم بالتصنيف</button>
+                         </div>
+
+                    </div>
+
+                    </form>
+                  </div>
+
+               </div>
+          </div>
+     </section>
+
+
+<!-- 
+<div id="topic_class" >
+
+</div> -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p id ='topic_class' style='text-align:right; font-weight: bold; '> </p>
+  </div>
+
+</div>
+
+<section class="contact section-padding " id="project">  <!--<section class="contact section-padding"> -->
+   <!-- About -->
+   <div  data-aos="fade-up" id="team" class="basic-4">
+     <div class="container"  >
+         <div class="row">
+             <div class="col-lg-12">
+                 <h2  style ="text-align:center"><strong>عن الفريق </strong></h2><br><br>
+                 <p style ="text-align:center; font-size:1rem;">
+                 General assembly
+                 نحن فريق تقني  , مهتمين بتعليم الآلة و الذكاء الاصطناعي . قمنا ببناء هذا المشروع كأحد متطلبات البرنامج التدريبي الذي قدمته لنا وزارة الاتصالات و تقنية المعلومات و
+               
+               </p></br>
+
+             </div> <!-- end of col -->
+         </div> <!-- end of row -->
+         <div class="row" >
+             <div class="col-lg-12" >
+               
+                 <!-- Team Member -->
+                 <div class="team-member"  >
+                     <div class="image-wrapper">
+                         <img class="img-fluid" src="{{url_for('static', filename='images/team-member-1.svg') }}" alt="alternative">
+                     </div> <!-- end of image-wrapper -->
+                     <p class="p-large" style ="text-align:center"><strong>ريم الروقي </strong></p>
+                     <p class="job-title" style ="text-align:center">علوم بيانات </p>
+                     <span class="social-icons">
+                         <span class="fa-stack">
+                             <a href="http://www.linkedin.com/in/reemalruqi">
+                                 <i class="fas fa-circle fa-stack-2x facebook"></i>
+                                 <i class="fab fa-linkedin fa-stack-1x"  style='color:white'></i>
+                             </a>
+                         </span>
+                         <span class="fa-stack">
+                             <a href="https://twitter.com/reem_alruqi"> 
+                                <i class="fas fa-circle fa-stack-2x twitter" ></i>
+                                <i class="fab fa-twitter fa-stack-1x"  style='color:white'></i>
+                             </a>
+                         </span>
+                     </span> <!-- end of social-icons -->
+                 </div> <!-- end of team-member -->
+                 <!-- end of team member -->
+                 <!-- Team Member -->
+                 <div class="team-member">
+                     <div class="image-wrapper">
+                         <img class="img-fluid" src="{{url_for('static', filename='images/team-member-3.svg') }}" alt="alternative">
+                     </div> <!-- end of image wrapper -->
+                     <p class="p-large" style ="text-align:center"><strong>خلود العويس</strong></p>
+                     <p class="job-title" style ="text-align:center">علوم البيانات </p>
+                     <span class="social-icons">
+                         <span class="fa-stack">
+                             <a href="https://www.linkedin.com/in/kholoud-owais-5b3aa41aa">
+                                 <i class="fas fa-circle fa-stack-2x facebook"></i>
+                                 <i class="fab fa-linkedin fa-stack-1x"  style='color:white' ></i>
+                             </a>
+                         </span>
+                         <span class="fa-stack">
+                             <a href="https://mobile.twitter.com/kholoud_owais"> 
+                                 <i class="fas fa-circle fa-stack-2x twitter"></i>
+                                 <i class="fab fa-twitter  fa-stack-1x " style='color:white'></i>
+                             </a>
+                         </span>
+                     </span> <!-- end of social-icons -->
+                 </div> <!-- end of team-member -->
+                 <!-- end of team member -->
+                 <!-- Team Member -->
+                 <div class="team-member">
+                    <div class="image-wrapper">
+                        <img class="img-fluid" src="{{url_for('static', filename='images/team-member-4.svg') }}" alt="alternative">
+                    </div> <!-- end of image wrapper -->
+                    <p class="p-large" style ="text-align:center"><strong>وعد الروقي </strong></p>
+                    <p class="job-title" style ="text-align:center" >علوم البيانات </p>
+                    <span class="social-icons" >
+                        <span class="fa-stack">
+                            <a href="http://www.linkedin.com/in/waad-datascientist">
+                                <i class="fas fa-circle fa-stack-2x facebook"></i>
+                                <i class="fab fa-linkedin fa-stack-1x" style='color:white'></i>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                            <a href="https://twitter.com/waad_0alroqi">
+                                <i class="fas fa-circle fa-stack-2x twitter"></i>
+                                <i class="fab fa-twitter fa-stack-1x"  style='color:white'></i>
+                            </a>
+                        </span>
+                    </span> <!-- end of social-icons -->
+                </div> <!-- end of team-member -->
+                <!-- end of team member -->
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</div> <!-- end of basic-4 -->
+<!-- end of about -->
+</section>
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+
+          <div style="margin-top:2rem;" class="col-lg-5 mx-lg-auto col-md-8 col-10">
+            <h1 class="text-white" data-aos="fade-up" data-aos-delay="100">DATA SCIENTISTS<br><br> Team of <strong>DSI8.</strong> </h1>
+          </div>
+
+          <div style="margin-left:10rem;" class="col-lg-3 col-md-6 col-12" data-aos="fade-up" data-aos-delay="200">
+            <h4 class="my-4">Contact Info</h4>
+
+            <p class="mb-1">
+              <i class="fa fa-phone mr-2 footer-icon"></i> 
+              +966 53 700 3125
+            </p>
+
+            <p>
+              <a href="#">
+                <i class="fa fa-envelope mr-2 footer-icon"></i>
+                ds_dsi8@outlook.com
+              </a>
+            </p>
+          </div>
+          <div class="col-lg-3 mx-lg-auto col-md-6 col-12" data-aos="fade-up" data-aos-delay="600">
+            <ul class="social-icon">
+              <li><a href="#" class="fa fa-instagram"></a></li>
+              <li><a href="#" class="fa fa-twitter"></a></li>
+              <li><a href="#" class="fa fa-dribbble"></a></li>
+              <li><a href="#" class="fa fa-behance"></a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+
+
+      
+</body>
+
+<!-- SCRIPTS -->
+<script src="{{url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{url_for('static', filename='js/bootstrap.min.js') }}"></script> 
+<script src="{{url_for('static', filename='js/aos.js') }}"></script>
+<script src="{{url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+<script src="{{url_for('static', filename='js/smoothscroll.js') }}"></script>
+<script src="{{url_for('static', filename='js/custom.js') }}"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+
+<script type=text/javascript>
+    $(function() {
+      $('#submit-button').bind('click', function() {
+        $.post('/', {  
+          article: $('textarea[name="article"]').val(),
+        }, function(data) {
+
+          // $('#topic_class').append("<h2  style ='background-color: #f1c111 ; color:white;font-size:30px; padding:30px;' >"+text(data.result)+"</h2>");
+          // $('#topic_class').append("<h2  style ='background-color: #f1c111 ; color:white;font-size:30px; padding:30px;' >"+data.result+"</h2>")
+
+          // $('#topic_class').append('<div  class="overlay"> <div class="popup"> <h2> Here i am</h2><a class="close" href="#">&times;</a><div class="content">'+data.result+ ' </div></div></div>')
+
+          // Get the modal
+          var modal = document.getElementById("myModal");
+
+          // Get the <span> element that closes the modal
+          var span = document.getElementsByClassName("close")[0];
+
+          // When the user clicks the button, open the modal 
+          $('#topic_class').append(data.result)
+          modal.style.display = "block";
+
+          // When the user clicks on <span> (x), close the modal
+          span.onclick = function() {
+            $('#topic_class').html('');
+            modal.style.display = "none";
+          }
+
+          // When the user clicks anywhere outside of the modal, close it
+          window.onclick = function(event) {
+            if (event.target == modal) {
+              $('#topic_class').html('');
+              modal.style.display = "none";
+            }
+          }
+
+
+        });
+        return false;
+      });
+    });
+</script>
+
+
+
+</html>
